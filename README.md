@@ -24,6 +24,8 @@ Solution for the Mars Rover coding problem.
     Each line represents the final position and orientation of the robots of the form (x, y, orientation) and optionally whether the robot was lost.
 
 # Assumptions
+1. The first number for the grid specifies the width (x) and the second number of the grid specifies the height (y).
+1. The grid is 0-indexed. For example, in a 4x4 grid, a rover can be at (0,0) but not (4,4). The max position would be (3,3).
 1. Multiple rovers do not affect each other. For example, there can be multiple rovers in the same space.
 
 

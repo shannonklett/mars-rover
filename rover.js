@@ -12,23 +12,87 @@ const nextRightDirection = {
     'W': 'N',
 }
 
+const minX = 0
+const minY = 0
+
 class Rover {
 
-    constructor(orientation) {
-        this.orientation = orientation
+    #maxX
+    #maxY
+    #x
+    #y
+    #orientation
+    #isLost = false
 
+    constructor(width, height, x, y, orientation) {
+        this.#maxX = width - 1
+        this.#maxY = height - 1
+        this.#x = x
+        this.#y = y
+        this.#orientation = orientation
     }
 
-    turnLeft() {
-        this.orientation = nextLeftDirection[this.orientation]
+    getMaxX() {
+        return this.#maxX
     }
 
-    turnRight() {
-        this.orientation = nextRightDirection[this.orientation]
+    getMaxY() {
+        return this.#maxY
+    }
+
+    getPosition() {
+        return { x: this.#x, y: this.#y }
     }
 
     getOrientation() {
-        return this.orientation
+        return this.#orientation
+    }
+
+    getIsLost() {
+        return this.#isLost
+    }
+
+    turnLeft() {
+        this.#orientation = nextLeftDirection[this.#orientation]
+    }
+
+    turnRight() {
+        this.#orientation = nextRightDirection[this.#orientation]
+    }
+
+    moveForward() {
+        switch (this.#orientation) {
+            case 'N':
+                if (this.#y == this.#maxY) {
+                    this.#isLost = true
+                    return;
+                }
+                this.#y++
+                break;
+            case 'E':
+                if (this.#x == this.#maxX) {
+                    this.#isLost = true
+                    return;
+                }
+                this.#x++
+                break;
+            case 'S':
+                if (this.#y == minY) {
+                    this.#isLost = true
+                    return;
+                }
+                this.#y--
+                break;
+            case 'W':
+                if (this.#x == minX) {
+                    this.#isLost = true
+                    return;
+                }
+                this.#x--
+                break;
+        }
+
+
     }
 }
 
