@@ -1,5 +1,5 @@
-import { parseWidthAndHeight, parseTestCase, executeCommands, createOutputString } from './IOHelper.js'
-import Rover from './rover.js';
+import { parseWidthAndHeight, parseTestCase, executeCommands, createOutputString } from './src/ioHelper.js'
+import Rover from './src/rover.js';
 
 process.stdin.resume();
 process.stdin.setEncoding('utf-8');
