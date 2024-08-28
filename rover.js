@@ -53,38 +53,47 @@ class Rover {
     }
 
     turnLeft() {
+        if (this.#isLost) {
+            return
+        }
         this.#orientation = nextLeftDirection[this.#orientation]
     }
 
     turnRight() {
+        if (this.#isLost) {
+            return
+        }
         this.#orientation = nextRightDirection[this.#orientation]
     }
 
     moveForward() {
+        if (this.#isLost) {
+            return
+        }
         switch (this.#orientation) {
             case 'N':
-                if (this.#y == this.#maxY) {
+                if (this.#y >= this.#maxY) {
                     this.#isLost = true
                     return;
                 }
                 this.#y++
                 break;
             case 'E':
-                if (this.#x == this.#maxX) {
+                if (this.#x >= this.#maxX) {
                     this.#isLost = true
                     return;
                 }
                 this.#x++
                 break;
             case 'S':
-                if (this.#y == minY) {
+                if (this.#y <= minY) {
                     this.#isLost = true
                     return;
                 }
                 this.#y--
                 break;
             case 'W':
-                if (this.#x == minX) {
+                if (this.#x <= minX) {
                     this.#isLost = true
                     return;
                 }
