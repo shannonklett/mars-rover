@@ -44,7 +44,7 @@ npm start
 4 8
 (2, 3, E) LFRFF
 (0, 2, N) FFLFRFF
-# Ctrl+D to end input and get output
+# Ctrl+D to end input and get output (for unix systems)
 ```
 
 ## Run tests
