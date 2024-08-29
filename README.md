@@ -40,6 +40,11 @@ node install
 ## Run
 ```
 npm start
+# Enter input
+4 8
+(2, 3, E) LFRFF
+(0, 2, N) FFLFRFF
+# Ctrl+D to end input and get output
 ```
 
 ## Run tests
